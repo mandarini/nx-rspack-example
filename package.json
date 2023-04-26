@@ -2,7 +2,11 @@
   "name": "nx-rspack-example",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build-ci": "npx nx run-many --target=build",
+    "test-ci": "npx nx run-many --target=test",
+    "e2e-ci": "npx nx run-many --target=e2e"
+  },
   "private": true,
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
