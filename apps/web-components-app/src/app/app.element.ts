@@ -10,8 +10,8 @@ export class AppElement extends HTMLElement {
     <div class="wrapper">
       <div class="container">
 
-      <div id="jslib">
-        <p>${jsLib()}</p>
+      <div>
+        <p id="jslib">${jsLib()}</p>
       </div>
 
         <!--  WELCOME  -->

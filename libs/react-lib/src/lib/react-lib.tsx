@@ -6,7 +6,7 @@ export interface ReactLibProps {}
 export function ReactLib(props: ReactLibProps) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to ReactLib!</h1>
+      <h1 id="reactlib">Welcome to ReactLib!</h1>
     </div>
   );
 }
