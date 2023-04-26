@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "nx-rspack-example",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "accessToken": "ZTZmOGNjYmItMjk0My00MTc1LWJiOTAtOTJlMzhhOWVjNmQ1fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default"
+    ],
+    "sharedGlobals": []
+  }
+}
