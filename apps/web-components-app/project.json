@@ -1,0 +1,68 @@
+{
+  "name": "web-components-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/web-components-app/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/web-components-app",
+        "main": "apps/web-components-app/src/main.ts",
+        "tsConfig": "apps/web-components-app/tsconfig.app.json",
+        "rspackConfig": "apps/web-components-app/rspack.config.js",
+        "assets": [
+          "apps/web-components-app/src/favicon.ico",
+          "apps/web-components-app/src/assets"
+        ]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/rspack:dev-server",
+      "options": {
+        "buildTarget": "web-components-app:build:development"
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "web-components-app:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/web-components-app/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/web-components-app/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  }
+}

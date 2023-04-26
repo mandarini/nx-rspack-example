@@ -1,0 +1,5 @@
+{
+  "name": "@nx-rspack-example/js-lib",
+  "version": "0.0.1",
+  "type": "commonjs"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "js-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/js-lib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/js-lib",
+        "main": "libs/js-lib/src/index.ts",
+        "tsConfig": "libs/js-lib/tsconfig.lib.json",
+        "assets": [],
+        "project": "libs/js-lib/package.json",
+        "compiler": "swc"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/js-lib/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
