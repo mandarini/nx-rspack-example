@@ -5,10 +5,11 @@ export class AppElement extends HTMLElement {
   public static observedAttributes = [];
 
   connectedCallback() {
-    const title = 'web-components-app';
+    const title = 'web-webpack';
     this.innerHTML = `
     <div class="wrapper">
       <div class="container">
+
       <div>
         <p id="jslib">${jsLib()}</p>
       </div>

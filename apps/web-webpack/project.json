@@ -1,0 +1,77 @@
+{
+  "name": "web-webpack",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/web-webpack/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/web-webpack",
+        "compiler": "babel",
+        "main": "apps/web-webpack/src/main.ts",
+        "tsConfig": "apps/web-webpack/tsconfig.app.json",
+        "webpackConfig": "apps/web-webpack/webpack.config.js",
+        "assets": [
+          "apps/web-webpack/src/favicon.ico",
+          "apps/web-webpack/src/assets"
+        ],
+        "index": "apps/web-webpack/src/index.html",
+        "baseHref": "/",
+        "styles": ["apps/web-webpack/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/web-webpack/src/environments/environment.ts",
+              "with": "apps/web-webpack/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "web-webpack:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "web-webpack:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/web-webpack/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/web-webpack/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  }
+}

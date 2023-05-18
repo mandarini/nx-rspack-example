@@ -5,14 +5,15 @@ export class AppElement extends HTMLElement {
   public static observedAttributes = [];
 
   connectedCallback() {
-    const title = 'web-components-app';
+    const title = 'web-vite';
     this.innerHTML = `
     <div class="wrapper">
       <div class="container">
+
+
       <div>
         <p id="jslib">${jsLib()}</p>
       </div>
-
         <!--  WELCOME  -->
         <div id="welcome">
           <h1>
