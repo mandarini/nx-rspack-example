@@ -1,5 +1,5 @@
 import './app.element.css';
-import { jsLib } from '@nx-rspack-example/js-lib';
+// import { jsLib } from '@nx-rspack-example/js-lib';
 
 export class AppElement extends HTMLElement {
   public static observedAttributes = [];
@@ -11,7 +11,7 @@ export class AppElement extends HTMLElement {
       <div class="container">
 
       <div>
-        <p id="jslib">${jsLib()}</p>
+      <!-- <p id="jslib">{jsLib()}</p> -->
       </div>
 
         <!--  WELCOME  -->
