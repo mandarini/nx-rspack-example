@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/rspack:rspack",
+      "executor": "@nx/rspack:rspack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
@@ -32,7 +32,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/rspack:dev-server",
+      "executor": "@nx/rspack:dev-server",
       "options": {
         "buildTarget": "web-components-app:build:development"
       },
